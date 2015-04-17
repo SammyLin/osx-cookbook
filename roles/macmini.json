@@ -1,0 +1,10 @@
+{
+  "run_list": [
+    "recipe[homebrew]",
+    "recipe[commandp]",
+    "recipe[commandp::ruby]",
+    "recipe[dmg]",
+    "recipe[commandp::vpn]"
+  ]
+
+}

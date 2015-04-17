@@ -14,7 +14,7 @@
 
 加入下面這行
 
-  commandp ALL=(ALL) NOPASSWD: ALL
+    commandp ALL=(ALL) NOPASSWD: ALL
 
 ### 下載 osx-cookbook 資料夾
 
@@ -25,6 +25,8 @@
     $ ./bootstrap.sh
 
 ### 5.上 VPS Server 開帳號，並下載 key 檔
+
+[https://54.65.34.51:9700](https://54.65.34.51:9700)
 
 ![](doc/001.png)
 

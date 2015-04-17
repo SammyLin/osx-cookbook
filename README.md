@@ -10,7 +10,7 @@
 
 ### 2.把 commandp 加入到 /etc/sudoer
 
-  $ sudo visudo
+    $ sudo visudo
 
 加入下面這行
 
@@ -22,7 +22,7 @@
 
 ### 4.安裝及執行 Chef
 
-  ./bootstrap.sh
+    $ ./bootstrap.sh
 
 ### 5.上 VPS Server 開帳號，並下載 key 檔
 
@@ -50,31 +50,40 @@
 ### 9. 開啟功能
 
 系統偏好設定 / 共享, 打開遠端登入 (ssh) 與螢幕共享 (vnc)
+
 系統偏好設定 / 使用者與群組 / 登入選項, 設定為開機自動登入 commandp
+
 系統偏好設定 / 安全性與隱私, 取消喚醒輸入密碼
+
 系統偏好設定 / 能源節約器, 將避免自動進入睡眠打鉤
+
 別忘了把你的 key 放入 .ssh/authorized_keys
 
 
 ### 10. 本機操作
 
 把 server ip 加入 config/deploy/staging.rb, 跑 cap staging deploy:check, 會幫你建立目錄並跟你說少什麼檔案
+
 從別台 server 複製設定檔, 例如:
-scp 'commandp@192.168.0.156:~/deploy/staging/shared/config/*.yml' .
-scp *.yml commandp@192.168.0.141:~/deploy/staging/shared/config/
-跑 cap staging deploy:check, 確定沒少檔案
-ssh bitbucket.org
-cap staging deploy <- 要跑很久, 可以先去打個桌球
+
+    $ scp 'commandp@192.168.0.156:~/deploy/staging/shared/config/*.yml' .
+    $ scp *.yml commandp@192.168.0.141:~/deploy/staging/shared/config/
+
+跑 `cap staging deploy:check`, 確定沒少檔案
+
+    $ ssh bitbucket.org
+
+    $ cap staging deploy <- 要跑很久, 可以先去打個桌球
 
 
 
-# cookbook 更動備註
+## cookbook 更動備註
 
-## 如果 berksfile 有更改的話
+### 如果 berksfile 有更改的話
 
-  berks vendor vendor/cookbooks
+    $ berks vendor vendor/cookbooks
 
-## 執行 chef-solo
+### 執行 chef-solo
 
-  chef-solo -c solo.rb -j rolos/macmini.json
+    $ chef-solo -c solo.rb -j rolos/macmini.json
 

@@ -17,29 +17,36 @@
 
 如果不是的話先加入使用者 帳號密碼設定為 `commandp` / `commandp`
 
+### 2.把 commandp 加入到 /etc/sudoer
 
-### 2.下載 osx-cookbook 資料夾
+    $ sudo visudo
+
+加入下面這行
+
+    commandp ALL=(ALL) NOPASSWD: ALL
+
+### 3.下載 osx-cookbook 資料夾
 
 請到 XXXX 下載
 
-### 3.把 KEY 放到 roles/macmini.json
+### 4.把 KEY 放到 roles/macmini.json
 
     # cat ~/.ssh/id_rsa.pub 查詢自已的 KEY 貼到裡面
     "ssh_keys": [ "ssh-rsa AAAAxx" ]
 
-### 4.安裝 Installing Command Line Tools
+### 5.安裝 Installing Command Line Tools
 
     $ xcode-select --install
 
-### 5.安裝 Chef
+### 6.安裝 Chef
 
     $ sudo ./bootstrap.sh
 
-### 6.執行 Chef
+### 7.執行 Chef
 
-    $ sudo ./deploy.sh
+    $ ./deploy.sh
 
-### 7.上 VPS Server 開帳號，並下載 key 檔
+### 8.上 VPS Server 開帳號，並下載 key 檔
 
 [https://54.65.34.51:9700](https://54.65.34.51:9700)
 
@@ -48,7 +55,7 @@
 (目前命名規則為 dc-mini1, dc-mini2, ...)
 
 
-### 8. 匯入 VPN Key 檔 (.ovpn)
+### 9. 匯入 VPN Key 檔 (.ovpn)
 
 ![](doc/002.png)
 
@@ -56,16 +63,16 @@
 
 ![](doc/003.png)
 
-### 9. 設定保持連結，並連線
+### 10. 設定保持連結，並連線
 
 ![](doc/004.png)
 
-### 10. 下載 illustrator
+### 11. 下載 illustrator
 
 # fix
 
 
-### 11. 本機操作
+### 12. 本機操作
 
 把 server ip 加入 config/deploy/staging.rb, 跑 cap staging deploy:check, 會幫你建立目錄並跟你說少什麼檔案
 

@@ -12,4 +12,4 @@ sudo mkdir -p /var/chef && sudo chown -R `whoami`:staff /var/chef
 sudo mkdir -p /usr/local && sudo chown -R `whoami`:staff /usr/local
 
 echo "Strat chef-solo"
-chef-solo -c solo.rb -j rolos/macmini.json
+chef-solo -c solo.rb -j roles/macmini.json

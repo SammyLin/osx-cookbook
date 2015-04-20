@@ -6,7 +6,7 @@
     "recipe[commandp]",
     "recipe[commandp::ruby]",
     "recipe[dmg]",
-    "recipe[commandp::vpn]",
+    "recipe[tunnelblick]",
     "recipe[users]"
   ]
 }

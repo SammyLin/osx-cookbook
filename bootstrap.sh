@@ -17,7 +17,7 @@ else
 fi
 
 
-# Add /etc/chef/ if it doesn't exist
+# Add /var/chef/ if it doesn't exist
 if [ ! -d "/var/chef/" ]; then
   echo "Creating /var/chef/"
   sudo mkdir -p /var/chef && sudo chown -R `whoami`:staff /var/chef

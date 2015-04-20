@@ -6,10 +6,12 @@
 include_recipe "build-essential"
 include_recipe "homebrew"
 
-%w(git postgresql fontconfig imagemagick).each do |package_name|
-  homebrew_package package_name
+%w{git postgresql fontconfig imagemagick}.each do |package_name|
+execute "Installing #{package_name}" do
+  command "brew install #{package_name}"
+  not_if  "brew list | grep -q #{package_name}"
 end
-
+end
 
 ## 打開螢幕共享
 execute "enable screensharing" do

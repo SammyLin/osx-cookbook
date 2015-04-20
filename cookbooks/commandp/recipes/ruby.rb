@@ -4,8 +4,12 @@
 #
 
 execute "Installs RVM (Ruby Version Manager)" do
-  command "curl -sSL https://get.rvm.io"
+  command "curl -sSL https://get.rvm.io | bash"
   not_if "which rvm"
+end
+
+execute "update bash profile" do
+  command "source ~/.rvm/scripts/rvm"
 end
 
 node['rvm']['rubies']['version'].each do |version|

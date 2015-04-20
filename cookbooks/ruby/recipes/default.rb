@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: commandp
-# Recipe:: ruby
+# Cookbook Name:: ruby
+# Recipe:: default
 #
 
 execute "Installs RVM (Ruby Version Manager)" do

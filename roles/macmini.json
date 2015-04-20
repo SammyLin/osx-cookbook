@@ -4,7 +4,7 @@
   "run_list": [
     "recipe[homebrew]",
     "recipe[commandp]",
-    "recipe[commandp::ruby]",
+    "recipe[ruby]",
     "recipe[dmg]",
     "recipe[tunnelblick]",
     "recipe[users]"

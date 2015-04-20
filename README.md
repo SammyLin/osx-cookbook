@@ -8,23 +8,29 @@
 
 如果不是的話先加入使用者 帳號密碼設定為 `commandp` / `commandp`
 
-### 2.把 commandp 加入到 /etc/sudoer
 
-    $ sudo visudo
-
-加入下面這行
-
-    commandp ALL=(ALL) NOPASSWD: ALL
-
-### 下載 osx-cookbook 資料夾
+### 2.下載 osx-cookbook 資料夾
 
 請到 XXXX 下載
 
-### 4.安裝及執行 Chef
+### 3.把 KEY 放到 roles/macmini.json
+
+    # cat ~/.ssh/id_rsa.pub 查詢自已的 KEY 貼到裡面
+    "ssh_keys": [ "ssh-rsa AAAAxx" ]
+
+### 4.安裝 Installing Command Line Tools
+
+    $ xcode-select --install
+
+### 5.安裝 Chef
 
     $ ./bootstrap.sh
 
-### 5.上 VPS Server 開帳號，並下載 key 檔
+### 6.執行 Chef
+
+    $ ./deploy.sh
+
+### 7.上 VPS Server 開帳號，並下載 key 檔
 
 [https://54.65.34.51:9700](https://54.65.34.51:9700)
 
@@ -33,7 +39,7 @@
 (目前命名規則為 dc-mini1, dc-mini2, ...)
 
 
-### 6. 匯入 VPN Key 檔 (.ovpn)
+### 8. 匯入 VPN Key 檔 (.ovpn)
 
 ![](doc/002.png)
 
@@ -41,28 +47,16 @@
 
 ![](doc/003.png)
 
-### 7. 設定保持連結，並連線
+### 9. 設定保持連結，並連線
 
 ![](doc/004.png)
 
-### 8. 下載 illustrator
+### 10. 下載 illustrator
 
 # fix
 
-### 9. 開啟功能
 
-系統偏好設定 / 共享, 打開遠端登入 (ssh) 與螢幕共享 (vnc)
-
-系統偏好設定 / 使用者與群組 / 登入選項, 設定為開機自動登入 commandp
-
-系統偏好設定 / 安全性與隱私, 取消喚醒輸入密碼
-
-系統偏好設定 / 能源節約器, 將避免自動進入睡眠打鉤
-
-別忘了把你的 key 放入 .ssh/authorized_keys
-
-
-### 10. 本機操作
+### 11. 本機操作
 
 把 server ip 加入 config/deploy/staging.rb, 跑 cap staging deploy:check, 會幫你建立目錄並跟你說少什麼檔案
 

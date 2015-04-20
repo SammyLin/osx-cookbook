@@ -1,10 +1,12 @@
 {
+  "user": "commandp",
+  "ssh_keys": [ "ssh-rsa AAAAxx" ],
   "run_list": [
     "recipe[homebrew]",
     "recipe[commandp]",
     "recipe[commandp::ruby]",
     "recipe[dmg]",
-    "recipe[commandp::vpn]"
+    "recipe[commandp::vpn]",
+    "recipe[users]"
   ]
-
 }

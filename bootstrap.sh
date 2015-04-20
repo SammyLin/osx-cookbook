@@ -1,15 +1,26 @@
 #!/bin/bash
 set -e
 
-echo "Install Chef"
+# Function that tests if a command exists
+command_exists() {
+  command -v "$1" &> /dev/null ;
+}
 
-curl -L https://opscode.com/chef/install.sh | sudo bash
+
+# Install chef-solo command if it doesn't exist (using omnibus installer)
+if command_exists chef-solo; then
+  echo "Chef already installed"
+else
+  echo "Installing chef to: /opt/chef/"
+  curl -L https://www.opscode.com/chef/install.sh | bash
+  echo ""
+fi
 
 
-echo "Modify the permissions on relevant directories"
-
-sudo mkdir -p /var/chef && sudo chown -R `whoami`:staff /var/chef
-sudo mkdir -p /usr/local && sudo chown -R `whoami`:staff /usr/local
-
-echo "Strat chef-solo"
-chef-solo -c solo.rb -j roles/macmini.json
+# Add /etc/chef/ if it doesn't exist
+if [ ! -d "/var/chef/" ]; then
+  echo "Creating /var/chef/"
+  sudo mkdir -p /var/chef && sudo chown -R `whoami`:staff /var/chef
+else
+  echo "Directory /etc/chef/ already exists"
+fi

@@ -5,12 +5,6 @@
 
 RVM_COMMAND = "/Users/#{node[:user]}/.rvm/bin/rvm"
 
-execute "Installing doctor" do
-  user node[:user]
-  command "brew install doctor"
-  not_if  "brew list | grep -q doctor"
-end
-
 execute "Installs RVM (Ruby Version Manager)" do
  user node[:user]
  command "curl -sSL https://get.rvm.io | bash"

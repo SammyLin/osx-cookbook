@@ -2,6 +2,15 @@
 
 這可以幫助你建置一個 Ruby 跟 Chef 的環境
 
+* RVM
+* Chef
+* Homebrew
+* postgresql
+* fontconfig
+* git
+* imagemagick
+* build-essential
+
 ## 步驟
 
 ### 1.確認使用者為 commandp 及確定是否為`管理者`
@@ -24,11 +33,11 @@
 
 ### 5.安裝 Chef
 
-    $ ./bootstrap.sh
+    $ sudo ./bootstrap.sh
 
 ### 6.執行 Chef
 
-    $ ./deploy.sh
+    $ sudo ./deploy.sh
 
 ### 7.上 VPS Server 開帳號，並下載 key 檔
 

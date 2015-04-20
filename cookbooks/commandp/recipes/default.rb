@@ -31,9 +31,13 @@ execute "enable auto Login commandp" do
   not_if "defaults read /Library/Preferences/com.apple.loginwindow autoLoginUser | grep 'commandp'"
 end
 
-#系統偏好設定 / 安全性與隱私, 取消喚醒輸入密碼
-# 待作
+## 系統偏好設定 / 安全性與隱私, 取消喚醒輸入密碼
+execute "Disable Ask Password" do
+  command "defaults write com.apple.screensaver askForPassword -int 0"
+  not_if "defaults read com.apple.screensaver askForPassword | grep '0'"
+end
 
+## 取消進入睡眠模式
 execute "disable sleep" do
   command "sudo pmset -a sleep 0"
 end

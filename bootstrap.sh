@@ -22,5 +22,14 @@ if [ ! -d "/var/chef/" ]; then
   echo "Creating /var/chef/"
   sudo mkdir -p /var/chef && sudo chown -R `whoami`:staff /var/chef
 else
-  echo "Directory /var/chef/ already exists"
+  echo "Directory /etc/chef/ already exists"
+fi
+
+# Download osx-cookbook
+if [ ! -d "~/osx-cookbook/" ]; then
+  echo "Download osx-cookbook"
+  git clone https://github.com/SammyLin/osx-cookbook.git ~/osx-cookbook; cd ~/osx-cookbook
+else
+  cd ~/osx-cookbook
+  echo "Directory ~/osx-cookbook already exists"
 fi

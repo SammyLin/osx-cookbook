@@ -13,7 +13,6 @@
 
 ## 步驟
 
-
 ### 1.安裝 Installing Command Line Tools
 
     $ xcode-select --install

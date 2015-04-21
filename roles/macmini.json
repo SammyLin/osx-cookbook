@@ -5,7 +5,7 @@
       "default_version": "ruby-2.1.2"
     },
     "rubies": {
-      "version": ["ruby-2.1.2",]
+      "version": ["ruby-2.1.2"]
     }
   },
   "brew": {

@@ -18,9 +18,9 @@ execute "enable ssh" do
 end
 
 ## 自動登入 commandp
-execute "enable auto Login #{node[user]}" do
-  command "sudo defaults write /Library/Preferences/com.apple.loginwindow autoLoginUser '#{node[user]}'"
-  not_if "defaults read /Library/Preferences/com.apple.loginwindow autoLoginUser | grep '#{node[user]}'"
+execute "enable auto Login #{node['user']}" do
+  command "sudo defaults write /Library/Preferences/com.apple.loginwindow autoLoginUser '#{node['user']}'"
+  not_if "defaults read /Library/Preferences/com.apple.loginwindow autoLoginUser | grep '#{node['user']}'"
 end
 
 ## 系統偏好設定 / 安全性與隱私, 取消喚醒輸入密碼

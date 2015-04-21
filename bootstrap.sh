@@ -1,12 +1,31 @@
 #!/bin/bash
 set -e
 
-# Download osx-cookbook
-if [ ! -d "~/osx-cookbook/" ]; then
-  echo "Download osx-cookbook"
-  git clone https://github.com/SammyLin/osx-cookbook.git ~/osx-cookbook
-  cd ~/osx-cookbook
+# Function that tests if a command exists
+command_exists() {
+  command -v "$1" &> /dev/null ;
+}
+
+# Add /var/chef/ if it doesn't exist
+if [ ! -d "/var/chef/" ]; then
+  echo "Creating /var/chef/"
+  sudo mkdir -p /var/chef && sudo chown -R `whoami`:staff /var/chef
 else
-  cd ~/osx-cookbook
-  echo "Directory ~/osx-cookbook already exists"
+  echo "Directory /var/chef already exists"
+fi
+
+if [ ! -d "/usr/local/" ]; then
+  echo "Creating /usr/local/"
+  sudo mkdir -p /usr/local && sudo chown -R `whoami`:staff /usr/local
+else
+  echo "Directory /usr/local already exists"
+fi
+
+# Install chef-solo command if it doesn't exist (using omnibus installer)
+if command_exists chef-solo; then
+  echo "Chef already installed"
+else
+  echo "Installing chef to: /opt/chef/"
+  curl -L https://www.opscode.com/chef/install.sh | sudo bash
+  echo ""
 fi

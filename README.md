@@ -26,16 +26,14 @@
 
     $ xcode-select --install
 
-### 3.設定
+### 3.設定 & 安裝 chef
 
-    $ curl -L https://raw.githubusercontent.com/SammyLin/osx-cookbook/master/setup.sh | sudo sh
+    $ curl -fsSL https://raw.githubusercontent.com/SammyLin/osx-cookbook/master/bootstrap.sh | sudo bash
 
-### 4.安裝 chef & 下載 cookbook
+### 4.下載 cookbook & 執行 Chef
 
-    $ curl -L https://raw.githubusercontent.com/SammyLin/osx-cookbook/master/bootstrap.sh | bash
-
-### 5.執行 Chef
-
+    $ git clone https://github.com/SammyLin/osx-cookbook.git ~/osx-cookbook
+    $ cd ~/osx-cookbook/
     $ ./deploy.sh
 
 ## cookbook 更動備註

@@ -6,7 +6,6 @@ command_exists() {
   command -v "$1" &> /dev/null ;
 }
 
-
 # Install chef-solo command if it doesn't exist (using omnibus installer)
 if command_exists chef-solo; then
   echo "Chef already installed"
@@ -16,19 +15,11 @@ else
   echo ""
 fi
 
-
-# Add /var/chef/ if it doesn't exist
-if [ ! -d "/var/chef/" ]; then
-  echo "Creating /var/chef/"
-  sudo mkdir -p /var/chef && sudo chown -R `whoami`:staff /var/chef
-else
-  echo "Directory /etc/chef/ already exists"
-fi
-
 # Download osx-cookbook
 if [ ! -d "~/osx-cookbook/" ]; then
   echo "Download osx-cookbook"
-  git clone https://github.com/SammyLin/osx-cookbook.git ~/osx-cookbook; cd ~/osx-cookbook
+  git clone https://github.com/SammyLin/osx-cookbook.git ~/osx-cookbook
+  cd ~/osx-cookbook
 else
   cd ~/osx-cookbook
   echo "Directory ~/osx-cookbook already exists"

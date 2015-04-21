@@ -2,27 +2,23 @@
   "user": "commandp",
   "rvm": {
     "ruby": {
-      "default_version": "ruby-2.1.2"
+      "default_version": "ruby-2.2.2"
     },
     "rubies": {
-      "version": ["ruby-2.1.2",]
+      "version": ["ruby-2.1.2", "ruby-2.2.2"]
     }
   },
   "brew": {
     "package": [
                 "git",
                 "postgresql",
-                "fontconfig",
                 "imagemagick"]
-  },
-  "ssh_keys": [ "ssh-rsa AAAAxx" ],
+  }
   "run_list": [
     "recipe[homebrew]",
     "recipe[brew_install]",
-    "recipe[commandp]",
     "recipe[ruby]",
     "recipe[dmg]",
-    "recipe[tunnelblick]",
-    "recipe[users]"
+    "recipe[tunnelblick]"
   ]
 }

@@ -3,16 +3,6 @@
 # Recipe:: default
 #
 
-include_recipe "build-essential"
-include_recipe "homebrew"
-
-%w{git postgresql fontconfig imagemagick}.each do |package_name|
-execute "Installing #{package_name}" do
-  command "brew install #{package_name}"
-  not_if  "brew list | grep -q #{package_name}"
-end
-end
-
 ## 打開螢幕共享
 execute "enable screensharing" do
   command "sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist"
@@ -28,9 +18,9 @@ execute "enable ssh" do
 end
 
 ## 自動登入 commandp
-execute "enable auto Login commandp" do
-  command "sudo defaults write /Library/Preferences/com.apple.loginwindow autoLoginUser 'commandp'"
-  not_if "defaults read /Library/Preferences/com.apple.loginwindow autoLoginUser | grep 'commandp'"
+execute "enable auto Login #{node[user]}" do
+  command "sudo defaults write /Library/Preferences/com.apple.loginwindow autoLoginUser '#{node[user]}'"
+  not_if "defaults read /Library/Preferences/com.apple.loginwindow autoLoginUser | grep '#{node[user]}'"
 end
 
 ## 系統偏好設定 / 安全性與隱私, 取消喚醒輸入密碼

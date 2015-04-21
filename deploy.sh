@@ -10,7 +10,7 @@ set -e
 echo "Strat chef-solo"
 ## Set relative paths
 solo_path="solo.rb"
-config_path="roles/macmini.json"
+config_path="roles/rails_dev.json"
 
 ## Set command
 cmd="chef-solo -c ${solo_path} -j ${config_path}"

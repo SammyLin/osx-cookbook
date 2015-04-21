@@ -22,5 +22,5 @@ if [ ! -d "/var/chef/" ]; then
   echo "Creating /var/chef/"
   sudo mkdir -p /var/chef && sudo chown -R `whoami`:staff /var/chef
 else
-  echo "Directory /etc/chef/ already exists"
+  echo "Directory /var/chef/ already exists"
 fi

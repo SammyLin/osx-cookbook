@@ -19,13 +19,13 @@
 
 ### 2.設定 & 安裝 chef
 
-    $ curl -fsSL https://raw.githubusercontent.com/SammyLin/osx-cookbook/master/bootstrap.sh | sudo bash
+    $ curl -fsSL https://raw.githubusercontent.com/SammyLin/osx-cookbook/master/script/bootstrap.sh | sudo bash
 
 ### 3.下載 cookbook & 執行 Chef
 
     $ git clone https://github.com/SammyLin/osx-cookbook.git ~/osx-cookbook
     $ cd ~/osx-cookbook/
-    $ ./deploy.sh
+    $ ./script/deploy.sh
 
 ## cookbook 更動備註
 

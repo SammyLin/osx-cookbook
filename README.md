@@ -1,39 +1,36 @@
-# Mac 自動安裝
+# osx-cookbooks
 
-這可以幫助你建置一個 Ruby 跟 Chef 的環境
+A chef repository for automating the configuration of MAC OS X workstations for rails
 
-* RVM
-* Chef
-* Homebrew
-* postgresql
-* fontconfig
-* git
-* imagemagick
-* build-essential
+## Usage
 
-## 步驟
-
-### 1.安裝 Installing Command Line Tools
+### 1.Install Command Line Tools
 
     $ xcode-select --install
 
-### 2.設定 & 安裝 chef
+### 2.Setting & Installing chef
 
-    $ curl -fsSL https://raw.githubusercontent.com/SammyLin/osx-cookbook/master/script/bootstrap.sh | sudo bash
+    $ curl -fsSL https://raw.githubusercontent.com/commandp/osx-cookbooks/master/script/bootstrap.sh | sudo bash
 
-### 3.下載 cookbook & 執行 Chef
+### 3.Clone cookbook & Running deploy
 
-    $ git clone https://github.com/SammyLin/osx-cookbook.git ~/osx-cookbook
-    $ cd ~/osx-cookbook/
+    $ git clone https://github.com/commandp/osx-cookbooks.git ~/osx-cookbooks ; cd ~/osx-cookbooks/
+
+### 4.Deploy
+
     $ ./script/deploy.sh
 
-## cookbook 更動備註
+---
 
-### 如果 berksfile 有更改的話
+## cookbook
+
+### If Berksfile Change
 
     $ berks vendor vendor/cookbooks
 
-### 執行 chef-solo
+### Run customized your node
 
-    $ chef-solo -c solo.rb -j rolos/macmini.json
+Now you are almost ready to run chef solo. Before running chef-solo you should copy the rolos/rails_dev.json to YOUR_NAME.json and edit it to your liking.
+
+    $ chef-solo -c solo.rb -j rolos/YOUR_NAME.json
 

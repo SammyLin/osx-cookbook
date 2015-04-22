@@ -25,7 +25,7 @@ fi
 if command_exists chef-solo; then
   echo "Chef already installed"
 else
-  echo "Installing chef to: /opt/chef/"
-  curl -L https://www.opscode.com/chef/install.sh | sudo bash
+  echo "Installing chef 12.1.2 to: /opt/chef/"
+  curl https://www.chef.io/chef/install.sh -o /tmp/chef-install.sh && chmod 755 /tmp/chef-install.sh && sudo /tmp/chef-install.sh -v 12.1.2 && rm /tmp/chef-install.sh
   echo ""
 fi

@@ -8,17 +8,29 @@
       "version": ["ruby-2.1.2", "ruby-2.2.2"]
     }
   },
-  "brew": {
-    "package": [
-                "git",
-                "postgresql",
-                "imagemagick"]
-  }
+  "homebrew": {
+    "casks": [
+              "alfred",
+              "macdown",
+              "1Password"
+              "dash",
+              "iterm2",
+              "sublime-text3",
+              "google-chrome",
+              "tunnelblick"
+             ],
+    "formulas": [
+                 "git",
+                 "postgresql",
+                 "imagemagick"
+                ]
+  },
   "run_list": [
-    "recipe[homebrew]",
-    "recipe[brew_install]",
-    "recipe[ruby]",
-    "recipe[dmg]",
-    "recipe[tunnelblick]"
+                "recipe[homebrew]",
+                "recipe[homebrew::cask]",
+                "recipe[homebrew::install_formulas]",
+                "recipe[homebrew::install_casks]",
+                "recipe[ruby]",
+                "recipe[users]"
   ]
 }

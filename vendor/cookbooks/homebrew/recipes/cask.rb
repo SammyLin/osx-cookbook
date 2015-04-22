@@ -28,12 +28,13 @@ execute 'update homebrew cask from github' do
   only_if { node['homebrew']['auto-update'] }
 end
 
-directory '/opt/homebrew-cask' do
-  owner node['homebrew']['owner'] || homebrew_owner
-  mode 00775
-end
+# has error (BUG?)
+# directory '/opt/homebrew-cask' do
+#   owner node['homebrew']['owner'] || homebrew_owner
+#   mode 00775
+# end
 
-directory '/opt/homebrew-cask/Caskroom' do
-  owner node['homebrew']['owner'] || homebrew_owner
-  mode 00775
-end
+# directory '/opt/homebrew-cask/Caskroom' do
+#   owner node['homebrew']['owner'] || homebrew_owner
+#   mode 00775
+# end

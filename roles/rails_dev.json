@@ -9,10 +9,11 @@
     }
   },
   "homebrew": {
+    "taps" : [ "caskroom/versions" ],
     "casks": [
               "alfred",
               "macdown",
-              "1Password"
+              "1password",
               "dash",
               "iterm2",
               "sublime-text3",
@@ -28,9 +29,9 @@
   "run_list": [
                 "recipe[homebrew]",
                 "recipe[homebrew::cask]",
+                "recipe[homebrew::install_taps]",
                 "recipe[homebrew::install_formulas]",
                 "recipe[homebrew::install_casks]",
-                "recipe[ruby]",
-                "recipe[users]"
+                "recipe[ruby]"
   ]
 }
